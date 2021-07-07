@@ -4,7 +4,9 @@ plugins {
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("io.micronaut.application") version "1.5.3"
     id("org.jetbrains.kotlin.plugin.allopen") version "1.4.32"
+    id("org.jetbrains.kotlin.plugin.noarg") version "1.4.32"
     id("org.jetbrains.kotlin.plugin.jpa") version "1.4.32"
+
 }
 
 version = "0.1"
@@ -37,11 +39,21 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("mysql:mysql-connector-java")
     testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:mysql")
+    //testImplementation("org.testcontainers:mysql")
     testImplementation("org.testcontainers:testcontainers")
     implementation("io.micronaut:micronaut-validation")
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("io.micronaut.xml:micronaut-jackson-xml")
+
+    //testes
+    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
+    testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.mockito:mockito-core:3.8.0")
+    testImplementation("io.micronaut.test:micronaut-test-junit5:2.3.2")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    testImplementation("com.h2database:h2")
 
 }
 
